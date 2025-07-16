@@ -15,9 +15,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  url: <%= ENV["DATABASE_URL"] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: rinha_backend_2025
+  password: <%= ENV["RINHA_BACKEND_2025_DATABASE_PASSWORD"] || "development" %>
 
 
 development:
@@ -82,4 +83,4 @@ production:
   <<: *default
   database: rinha_backend_2025_production
   username: rinha_backend_2025
-  password: <%= ENV["RINHA_BACKEND_2025_DATABASE_PASSWORD"] %>
+  password: <%= ENV["RINHA_BACKEND_2025_DATABASE_PASSWORD"] || "development" %>
