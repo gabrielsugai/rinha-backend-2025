@@ -1,0 +1,4 @@
+services_health_check:
+  cron: "*/1 * * * *"
+  class: "CheckServicesHealthWorker"
+  queue: health_check
