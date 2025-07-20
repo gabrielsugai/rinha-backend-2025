@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem 'faraday'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.2"
 # Use postgresql as the database for Active Record
@@ -23,6 +24,8 @@ gem "kamal", require: false
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
+gem "sidekiq", "~> 8.0"
+gem "sidekiq-cron"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -39,5 +42,3 @@ group :development, :test do
   gem 'vcr'
   gem 'webmock'
 end
-
-gem "sidekiq", "~> 8.0"
