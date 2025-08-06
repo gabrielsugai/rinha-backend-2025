@@ -26,6 +26,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 gem "sidekiq", "~> 8.0"
 gem "sidekiq-cron"
+gem "redis", "~> 5.0"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
