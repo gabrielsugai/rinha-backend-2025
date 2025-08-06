@@ -1,16 +1,10 @@
-require 'net/http'
-
 class CheckServicesHealthWorker
   include Sidekiq::Worker
   sidekiq_options queue: :health_check, retry: false, backtrace: true
 
   def perform
-    url = "#{ENV['PAYMENT_PROCESSOR_DEFAULT_URL']}/payments/service-health"
-    12.times do |i|
-      puts "Checking services health..."
-      response = Faraday.get(url)
-      puts response.body
-      sleep(5)
+    [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55].each do |i|
+      CheckHealthWorker.perform_in(i.seconds)
     end
   end
 end
